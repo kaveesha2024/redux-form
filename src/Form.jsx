@@ -1,10 +1,9 @@
 import Input from "./Input";
 import { useState } from "react";
 import Button from "./Button.jsx";
-import {useDispatch} from "react-redux";
-import {setFormInputData} from "./utility/formSlice.js";
+import { useDispatch } from "react-redux";
+import { setFormInputData } from "./utility/formSlice.js";
 import Table from "./Table.jsx";
-
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -14,15 +13,13 @@ const Form = () => {
   const [address, setAddress] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const data = {name, email, password, contact, address, birthday};
+  const data = { name, email, password, contact, address, birthday };
   // console.log(data);
 
   const dispatch = useDispatch();
   // const selector = useSelector((state) => state.form.formInputData)
 
-  const inputNameChange = (event) =>
-    setName(event.target.value)
-  ;
+  const inputNameChange = (event) => setName(event.target.value);
   const inputEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -39,7 +36,7 @@ const Form = () => {
     setPassword(event.target.value);
   };
   const submitButton = () => {
-    dispatch(setFormInputData(data))
+    dispatch(setFormInputData(data));
     setName("");
     setEmail("");
     setPassword("");
@@ -113,16 +110,10 @@ const Form = () => {
             onChange={inputPasswordChange}
             initialValue={password}
           />
-          <span style={{display: "flex", justifyContent: "space-around"}}>
-          <Button
-              btnName="submit"
-              onClick={submitButton}
-          />
-          <Button
-              btnName="Clear Form"
-              onClick={setFormInputEmpty}
-          />
-            </span>
+          <span style={{ display: "flex", justifyContent: "space-around" }}>
+            <Button btnName="submit" onClick={submitButton} />
+            <Button btnName="Clear Form" onClick={setFormInputEmpty} />
+          </span>
         </div>
       </form>
       <div>
